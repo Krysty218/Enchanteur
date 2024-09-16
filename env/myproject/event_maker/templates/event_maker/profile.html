@@ -1,0 +1,55 @@
+<!-- event_maker/templates/event_maker/profile.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Manager Profile</title>
+    <style>
+        /* You can add styles for better visuals */
+        .event-item {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .btn {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Welcome {{ user.username }}</h2>
+<h3>Your Hosted event_maker</h3>
+
+{% for event in event_maker %}
+<div class="event-item">
+    <h4>{{ event.title }}</h4>
+    <p><strong>Date & Time:</strong> {{ event.timing }}</p>
+    <p><strong>Area:</strong> {{ event.area }}</p>
+    <p><strong>Celebrity:</strong> {{ event.celebrity }}</p>
+    <p><strong>Category:</strong> {{ event.category }}</p>
+    <p><strong>Status:</strong> {{ event.get_status_display }}</p>
+
+    <!-- Add an "Edit" button linking to the edit event view -->
+    <a href="{% url 'edit_event' event.id %}" class="btn">Edit Event</a>
+</div>
+{% empty %}
+<p>You haven't created any event_maker yet.</p>
+{% endfor %}
+
+<a href="{% url 'create_event' %}" class="btn">Create New Event</a>
+<a href="{% url 'login' %}" class="btn">Logout</a>
+
+</body>
+</html>

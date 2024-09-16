@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #388e3c;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+        }
+
+        ul li {
+            display: inline-block;
+            margin: 10px;
+        }
+
+        ul li a {
+            display: block;
+            padding: 10px 20px;
+            background-color: #388e3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        ul li a:hover {
+            background-color: #2c6b2f;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Dashboard</h1>
+    <ul>
+        <li><a href="{% url 'event_list' %}">View Events</a></li>
+    </ul>
+    {% for user in users %}
+    {% if user.typ == 0 %}
+    <ul>
+        <li><a href="/event_maker/login_m/">Make Events</a></li>
+    </ul>
+    {% else %}
+    <ul>
+        <li><a href="/event_maker/profile">Manage Events</a></li>
+    </ul>
+    {% endif %}
+    {% endfor %}
+</body>
+
+</html>

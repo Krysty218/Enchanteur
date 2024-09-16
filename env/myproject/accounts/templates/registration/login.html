@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 5px; /* Added padding */
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .signup-link, .google-signin {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .signup-link a, .google-signin a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .signup-link a:hover, .google-signin a:hover {
+            text-decoration: underline;
+        }
+        .google-signin img {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
+        <div class="google-signin">
+            <p>Or login with:</p>
+            <a href="{% url 'social:begin' 'google-oauth2' %}">
+                <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo"> Google
+            </a>
+        </div>
+        <div class="signup-link">
+            <p>Don't have an account? <a href="/accounts/signup">Sign up here</a></p>
+        </div>
+        
+    </div>
+</body>
+</html>

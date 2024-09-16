@@ -1,0 +1,10 @@
+<!-- registration/login.html -->
+<h2>login</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="hidden" name="next" value="{{ next }}" />
+    <button type="submit">Login</button>
+</form>
+
+<p>Don't have an account? <a href="{% url 'event_manager_signup_m' %}">Sign up here</a></p>

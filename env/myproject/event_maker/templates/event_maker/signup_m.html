@@ -1,0 +1,10 @@
+
+<!-- event_maker/templates/event_maker/signup_m.html -->
+<h2>Sign Up</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <label for="organization_name">Organization Name:</label>
+    <input type="text" name="organization_name" required>
+    <button type="submit">Sign Up</button>
+</form>

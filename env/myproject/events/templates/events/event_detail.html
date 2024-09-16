@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ event.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #388e3c;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            margin: 10px 0;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #388e3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        a:hover {
+            background-color: #2c6b2f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ event.title }}</h1>
+        <p>{{ event.description }}</p>
+        <p>Date and Time: {{ event.date_time }}</p>
+        <p>Location: {{ event.location }}</p>
+        <p>Hosted by: {{ event.hosted_by }}</p>
+        <a href="{% url 'event_list' %}">Back to Event List</a>
+    </div>
+</body>
+</html>
