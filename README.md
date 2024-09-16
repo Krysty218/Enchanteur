@@ -1,7 +1,7 @@
 # **Event Ticket Management System**
 
 ## **Overview**
-A Django-based web application that allows users to view and book tickets for events. The app includes basic features like listing events, viewing event details, and booking tickets.
+A Django-based web application that allows users to view and book tickets for events. The app includes basic features like listing events, and viewing event details.
 
 ## **Features**
 - View all upcoming events.
